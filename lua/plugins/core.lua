@@ -10,15 +10,16 @@
 -- * override the configuration of LazyVim plugins
 return {
   -- add gruvbox
-  { "ellisonleao/gruvbox.nvim" },
+  -- { "ellisonleao/gruvbox.nvim" },
+  -- {"rebelot/kanagawa.nvim"},
 
   -- Configure LazyVim to load gruvbox
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
-  },
+  -- {
+  --  "LazyVim/LazyVim",
+  --  opts = {
+  --    colorscheme = "kanagawa",
+  --  },
+  -- },
 
   -- disable trouble
   -- { "folke/trouble.nvim", enabled = false },

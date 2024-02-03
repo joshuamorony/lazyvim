@@ -51,7 +51,7 @@ vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#d8bd92" })
 vim.filetype.add({
   extension = {
     mdx = "mdx",
-    ng = "ng",
+    analog = "analog",
   },
 })
 

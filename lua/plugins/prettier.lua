@@ -14,7 +14,7 @@ return {
       "scss",
       "yaml",
       "lua",
-      "ng",
+      "analog",
     },
   },
   {
@@ -44,7 +44,7 @@ return {
         ["markdown.mdx"] = { { "prettierd", "prettier" } },
         ["graphql"] = { { "prettierd", "prettier" } },
         ["handlebars"] = { { "prettierd", "prettier" } },
-        ["ng"] = { { "prettierd", "prettier" } },
+        ["analog"] = { { "prettierd", "prettier" } },
       },
     },
   },

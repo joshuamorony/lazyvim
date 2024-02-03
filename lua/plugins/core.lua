@@ -12,6 +12,17 @@ return {
   -- add gruvbox
   -- { "ellisonleao/gruvbox.nvim" },
   -- {"rebelot/kanagawa.nvim"},
+  {
+    "tiagovla/tokyodark.nvim",
+    opts = {
+        -- custom options here
+    },
+    config = function(_, opts)
+        require("tokyodark").setup(opts) -- calling setup is optional
+        vim.cmd [[colorscheme tokyodark]]
+    end,
+  },
+
 
   -- Configure LazyVim to load gruvbox
   -- {

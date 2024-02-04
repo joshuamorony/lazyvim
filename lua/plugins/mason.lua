@@ -4,6 +4,11 @@ return {
     opts = {
       ensure_installed = {
         "nxls",
+        "goimports",
+        "gofumpt",
+        "gomodifytags",
+        "impl",
+        "delve",
       },
     },
   },

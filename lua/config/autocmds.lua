@@ -15,3 +15,11 @@ vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
     vim.cmd("set conceallevel=3")
   end,
 })
+
+-- Disable nvim-cmp for Markdown files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    require("cmp").setup.buffer({ enabled = false })
+  end,
+})

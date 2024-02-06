@@ -4,12 +4,28 @@ return {
     opts = {
       filesystem = {
         filtered_items = {
-          hide_dotfiles = false,
+          hide_dotfiles = true,
           hide_gitignored = false,
         },
       },
       window = {
         position = "right",
+        mappings = {
+          ["J"] = function(state)
+            local tree = state.tree
+            local node = tree:get_node()
+            local siblings = tree:get_nodes(node:get_parent_id())
+            local renderer = require("neo-tree.ui.renderer")
+            renderer.focus_node(state, siblings[#siblings]:get_id())
+          end,
+          ["K"] = function(state)
+            local tree = state.tree
+            local node = tree:get_node()
+            local siblings = tree:get_nodes(node:get_parent_id())
+            local renderer = require("neo-tree.ui.renderer")
+            renderer.focus_node(state, siblings[1]:get_id())
+          end,
+        },
       },
       sort_function = function(a, b)
         -- Simplified check if a path is in the 'notes' directory

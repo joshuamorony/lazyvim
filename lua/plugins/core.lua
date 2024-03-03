@@ -71,6 +71,7 @@ return {
         "lua",
         "rust",
         "css",
+        "vue",
         "markdown",
         "markdown_inline",
         "python",

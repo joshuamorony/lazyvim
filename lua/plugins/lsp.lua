@@ -54,6 +54,9 @@ return {
         volar = function(_, opts)
           opts.filetypes = { "vue", "analog" }
         end,
+        marksman = function(_, opts)
+          opts.filetypes = { "md", "markdown", "mdx" }
+        end,
         gopls = function(_, opts)
           -- workaround for gopls not supporting semanticTokensProvider
           -- https://github.com/golang/go/issues/54531#issuecomment-1464982242

@@ -16,6 +16,13 @@ vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
   end,
 })
 
+-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--   pattern = { "*.analog" },
+--   callback = function()
+--     vim.cmd("set ft=vue")
+--   end,
+-- })
+
 -- Disable nvim-cmp for Markdown files
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",

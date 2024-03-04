@@ -55,7 +55,7 @@ return {
           opts.filetypes = { "vue", "analog" }
         end,
         marksman = function(_, opts)
-          opts.filetypes = { "md", "markdown", "mdx" }
+          opts.filetypes = { "md", "markdown", "mdx", "agx" }
         end,
         gopls = function(_, opts)
           -- workaround for gopls not supporting semanticTokensProvider

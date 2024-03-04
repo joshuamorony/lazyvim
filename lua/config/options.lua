@@ -51,6 +51,7 @@ vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#d8bd92" })
 vim.filetype.add({
   extension = {
     mdx = "mdx",
+    agx = "agx",
     analog = "analog",
   },
 })
@@ -62,5 +63,6 @@ vim.filetype.add({
 })
 
 vim.treesitter.language.register("markdown", "mdx")
+vim.treesitter.language.register("markdown", "agx")
 vim.treesitter.language.register("vue", "analog")
 vim.treesitter.language.register("json", ".all-contributorsrc")

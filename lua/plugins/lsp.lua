@@ -1,3 +1,5 @@
+local lspconfig = require("lspconfig")
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -52,10 +54,13 @@ return {
       },
       setup = {
         volar = function(_, opts)
-          opts.filetypes = { "vue", "analog" }
+          opts.filetypes = { "vue", "analog", "agx" }
         end,
         marksman = function(_, opts)
           opts.filetypes = { "md", "markdown", "mdx", "agx" }
+        end,
+        angularls = function(_, opts)
+          opts.root_dir = lspconfig.util.root_pattern("angular.json", "project.json")
         end,
         gopls = function(_, opts)
           -- workaround for gopls not supporting semanticTokensProvider

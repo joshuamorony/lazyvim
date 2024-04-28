@@ -27,6 +27,19 @@ vim.api.nvim_create_autocmd({ "BufLeave", "BufWinLeave" }, {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
-    require("cmp").setup.buffer({ enabled = false })
+    local cmp = require("cmp")
+    -- completely disable
+    -- require("cmp").setup.buffer({ enabled = false })
+
+    -- manual complete
+    cmp.setup({
+      completion = {
+        autocomplete = false,
+        completeopt = "menu,menuone,noinsert",
+      },
+      mapping = cmp.mapping.preset.insert({
+        ["<Tab>"] = cmp.mapping.complete(),
+      }),
+    })
   end,
 })

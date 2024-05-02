@@ -48,7 +48,7 @@ return {
     -- Consequently, the vim-internal fold levels need to be disabled by setting
     -- them to 99
     vim.opt.foldlevel = 99
-    vim.opt.foldlevelstart = 99
+    vim.opt.foldlevelstart = 4
   end,
   opts = {
     provider_selector = function(_, ft, _)
@@ -59,7 +59,8 @@ return {
       if vim.tbl_contains(lspWithOutFolding, ft) then
         return { "treesitter", "indent" }
       end
-      return { "lsp", "indent" }
+      return { "treesitter", "indent" }
+      -- return { "lsp", "indent" }
     end,
     -- when opening the buffer, close these fold kinds
     -- use `:UfoInspect` to get available fold kinds from the LSP

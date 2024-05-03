@@ -54,7 +54,7 @@ return {
       },
       setup = {
         volar = function(_, opts)
-          opts.filetypes = { "vue", "analog", "agx" }
+          opts.filetypes = { "vue", "agx" }
         end,
         marksman = function(_, opts)
           opts.filetypes = { "md", "markdown", "mdx", "agx" }

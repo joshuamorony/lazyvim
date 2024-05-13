@@ -48,7 +48,7 @@ return {
     -- Consequently, the vim-internal fold levels need to be disabled by setting
     -- them to 99
     vim.opt.foldlevel = 99
-    vim.opt.foldlevelstart = 4
+    vim.opt.foldlevelstart = 99
   end,
   opts = {
     provider_selector = function(_, ft, _)

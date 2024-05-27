@@ -4,7 +4,7 @@ local configs = require("lspconfig.configs")
 
 local root_patterns = { "angular.json", "nx.json" }
 local node_modules_root = vim.fs.dirname(vim.fs.find(root_patterns, { upward = true })[1])
-local project_root = require("lspconfig.util").root_pattern("angular.json", "nx.json")
+local project_root = require("lspconfig.util").root_pattern("angular.json", "project.json")
 
 if node_modules_root and project_root then
   local tsdkPath = node_modules_root .. "/node_modules/typescript/lib"
@@ -41,6 +41,7 @@ return {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         volar = {},
         analog = {},
+        svelte = {},
         gopls = {
           keys = {
             -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
@@ -88,6 +89,7 @@ return {
         volar = function(_, opts)
           opts.filetypes = { "vue", "agx" }
         end,
+        svelte = function(_, opts) end,
         analog = function(_, opts) end,
         marksman = function(_, opts)
           opts.filetypes = { "md", "markdown", "mdx", "agx" }

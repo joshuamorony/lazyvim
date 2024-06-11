@@ -55,7 +55,7 @@ return {
       -- INFO some filetypes only allow indent, some only LSP, some only
       -- treesitter. However, ufo only accepts two kinds as priority,
       -- therefore making this function necessary :/
-      local lspWithOutFolding = { "markdown", "md", "mdx", "agx", "sh", "css", "html", "python" }
+      local lspWithOutFolding = { "markdown", "md", "mdx", "agx", "svx", "sh", "css", "html", "python" }
       if vim.tbl_contains(lspWithOutFolding, ft) then
         return { "treesitter", "indent" }
       end

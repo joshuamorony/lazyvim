@@ -4,7 +4,7 @@ local configs = require("lspconfig.configs")
 
 local root_patterns = { "angular.json", "nx.json" }
 local node_modules_root = vim.fs.dirname(vim.fs.find(root_patterns, { upward = true })[1])
-local project_root = require("lspconfig.util").root_pattern("angular.json", "project.json")
+local project_root = require("lspconfig.util").root_pattern("angular.json", "nx.json")
 
 if node_modules_root and project_root then
   local tsdkPath = node_modules_root .. "/node_modules/typescript/lib"
@@ -42,6 +42,7 @@ return {
         volar = {},
         analog = {},
         svelte = {},
+        glsl_analyzer = {},
         gopls = {
           keys = {
             -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
@@ -94,6 +95,7 @@ return {
         marksman = function(_, opts)
           opts.filetypes = { "md", "markdown", "mdx", "agx" }
         end,
+        glsl_analyzer = function(_, opts) end,
         angularls = function(_, opts)
           opts.root_dir = lspconfig.util.root_pattern("angular.json", "project.json")
         end,

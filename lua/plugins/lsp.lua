@@ -41,6 +41,7 @@ return {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         volar = {},
         analog = {},
+        tailwindcss = {},
         svelte = {},
         glsl_analyzer = {},
         gopls = {
@@ -92,6 +93,7 @@ return {
         end,
         svelte = function(_, opts) end,
         analog = function(_, opts) end,
+        tailwindcss = function(_, opts) end,
         marksman = function(_, opts)
           opts.filetypes = { "md", "markdown", "mdx", "agx" }
         end,

@@ -93,7 +93,9 @@ return {
         end,
         svelte = function(_, opts) end,
         analog = function(_, opts) end,
-        tailwindcss = function(_, opts) end,
+        tailwindcss = function(_, opts)
+          opts.filetypes = { "css", "scss", "typescript", "analog" }
+        end,
         marksman = function(_, opts)
           opts.filetypes = { "md", "markdown", "mdx", "agx" }
         end,

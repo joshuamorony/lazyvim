@@ -6,30 +6,30 @@ local root_patterns = { "angular.json", "nx.json" }
 local node_modules_root = vim.fs.dirname(vim.fs.find(root_patterns, { upward = true })[1])
 local project_root = require("lspconfig.util").root_pattern("angular.json", "nx.json")
 
-if node_modules_root and project_root then
-  local tsdkPath = node_modules_root .. "/node_modules/typescript/lib"
-
-  if not configs.analog then
-    configs.analog = {
-      default_config = {
-        cmd = {
-          "analog-language-server",
-          "--stdio",
-        },
-        init_options = {
-          typescript = {
-            tsdk = tsdkPath,
-          },
-        },
-        name = "analog",
-        filetypes = {
-          "analog",
-        },
-        root_dir = project_root,
-      },
-    }
-  end
-end
+-- if node_modules_root and project_root then
+--   local tsdkPath = node_modules_root .. "/node_modules/typescript/lib"
+--
+--   if not configs.analog then
+--     configs.analog = {
+--       default_config = {
+--         cmd = {
+--           "analog-language-server",
+--           "--stdio",
+--         },
+--         init_options = {
+--           typescript = {
+--             tsdk = tsdkPath,
+--           },
+--         },
+--         name = "analog",
+--         filetypes = {
+--           "analog",
+--         },
+--         root_dir = project_root,
+--       },
+--     }
+--   end
+-- end
 
 return {
   {
@@ -40,7 +40,7 @@ return {
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         volar = {},
-        analog = {},
+        -- analog = {},
         tailwindcss = {},
         svelte = {},
         glsl_analyzer = {},
@@ -92,7 +92,7 @@ return {
           opts.filetypes = { "vue", "agx" }
         end,
         svelte = function(_, opts) end,
-        analog = function(_, opts) end,
+        -- analog = function(_, opts) end,
         tailwindcss = function(_, opts)
           opts.filetypes = { "css", "scss", "typescript", "analog" }
         end,

@@ -14,6 +14,7 @@ return {
       "yaml",
       "lua",
       "analog",
+      "ag",
     },
   },
   {
@@ -42,6 +43,7 @@ return {
         ["graphql"] = { { "prettierd", "prettier" } },
         ["handlebars"] = { { "prettierd", "prettier" } },
         ["analog"] = { { "prettierd", "prettier" } },
+        ["ag"] = { { "prettierd", "prettier" } },
       },
     },
   },

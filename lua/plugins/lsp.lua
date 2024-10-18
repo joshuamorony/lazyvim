@@ -137,7 +137,7 @@ return {
         end,
         glsl_analyzer = function(_, opts) end,
         angularls = function(_, opts)
-          opts.root_dir = lspconfig.util.root_pattern("angular.json", "project.json")
+          opts.root_dir = lspconfig.util.root_pattern("angular.json", "nx.json")
         end,
         gopls = function(_, opts)
           -- workaround for gopls not supporting semanticTokensProvider

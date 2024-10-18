@@ -43,6 +43,11 @@ vim.keymap.set("v", "<leader>mc", "di``<esc>hp", { desc = "Auto backtick" })
 
 vim.keymap.set("n", "<leader>bw", "<cmd>bufdo bwipeout<cr>", { desc = "Close all buffers" })
 
+-- jumps
+vim.keymap.set("n", "<leader>jt", "<cmd>/template:<cr><cmd>nohl<cr>", { desc = "Jump to template" })
+vim.keymap.set("n", "<leader>js", "<cmd>/style.:<cr><cmd>nohl<cr>", { desc = "Jump to styles" })
+vim.keymap.set("n", "<leader>jc", "<cmd>/Component {<cr><cmd>nohl<cr>", { desc = "Jump to component" })
+
 -- harpoon
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")

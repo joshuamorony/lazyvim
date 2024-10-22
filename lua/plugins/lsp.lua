@@ -40,6 +40,13 @@ return {
       ---@type lspconfig.options
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
+        angularls = {
+          root_dir = function(fname)
+            local util = require("lspconfig.util")
+            return util.root_pattern("angular.json", "nx.json")(fname)
+          end,
+          filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
+        },
         volar = {},
         analog = {},
         tailwindcss = {},

@@ -58,9 +58,11 @@ return {
   -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
+    -- use latest
+    version = false,
     opts = {
       ensure_installed = {
-        "angular",
+        -- "angular", install manually, this seems to break it
         "bash",
         "go",
         "gomod",
@@ -84,6 +86,10 @@ return {
         "yaml",
       },
     },
+    config = function(_, opts)
+      require("nvim-treesitter.install").prefer_git = true
+      require("nvim-treesitter.configs").setup(opts)
+    end,
   },
 
   -- add any tools you want to have installed below

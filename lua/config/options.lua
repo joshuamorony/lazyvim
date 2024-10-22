@@ -65,6 +65,7 @@ vim.filetype.add({
   },
 })
 
+vim.treesitter.language.register("angular", "angular.html")
 vim.treesitter.language.register("markdown", "mdx")
 vim.treesitter.language.register("markdown", "agx")
 vim.treesitter.language.register("markdown", "svx")

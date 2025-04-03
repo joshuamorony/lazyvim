@@ -15,6 +15,7 @@ return {
       "lua",
       "analog",
       "ag",
+      "mdx",
     },
   },
   {
@@ -43,6 +44,8 @@ return {
         ["graphql"] = { { "prettierd", "prettier" } },
         ["handlebars"] = { { "prettierd", "prettier" } },
         ["analog"] = { { "prettierd", "prettier" } },
+        ["astro"] = { { "prettierd", "prettier" } },
+        ["mdx"] = { { "prettierd", "prettier" } },
         ["ag"] = { { "prettierd", "prettier" } },
       },
     },

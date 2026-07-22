@@ -86,21 +86,6 @@ return {
         "yaml",
       },
     },
-    config = function(_, opts)
-      require("nvim-treesitter.install").prefer_git = true
-      require("nvim-treesitter.configs").setup(opts)
-    end,
-  },
-
-  -- add any tools you want to have installed below
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "nxls",
-      },
-    },
   },
 
   {

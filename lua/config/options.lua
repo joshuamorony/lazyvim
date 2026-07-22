@@ -42,11 +42,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "120"
 
-local float = { focusable = true, style = "minimal", border = "rounded" }
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, float)
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, float)
-
+vim.o.winborder = "rounded"
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#d8bd92" })
 
 vim.filetype.add({
@@ -60,19 +56,17 @@ vim.filetype.add({
 })
 
 vim.filetype.add({
-  extension = {
-    [".all-contributorsrc"] = ".all-contributorsrc",
+  filename = {
+    [".all-contributorsrc"] = "json",
   },
 })
 
 vim.treesitter.language.register("angular", "angular.html")
 vim.treesitter.language.register("markdown", "mdx")
-vim.treesitter.language.register("markdown", "agx")
 vim.treesitter.language.register("markdown", "svx")
 vim.treesitter.language.register("vue", "analog")
 vim.treesitter.language.register("vue", "ag")
 vim.treesitter.language.register("vue", "agx")
-vim.treesitter.language.register("json", ".all-contributorsrc")
 
 -- folds
 vim.o.foldcolumn = "1" -- '0' is not bad

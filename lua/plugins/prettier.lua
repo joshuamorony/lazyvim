@@ -1,30 +1,5 @@
 return {
   {
-    "MunifTanjim/prettier.nvim",
-    bin = "prettierd",
-    filetypes = {
-      "css",
-      "html",
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-      "json",
-      "scss",
-      "yaml",
-      "lua",
-      "analog",
-      "ag",
-      "mdx",
-    },
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      table.insert(opts.ensure_installed, "prettierd")
-    end,
-  },
-  {
     "stevearc/conform.nvim",
     optional = true,
     opts = {

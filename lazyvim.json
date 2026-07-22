@@ -1,11 +1,13 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.lang.angular",
     "lazyvim.plugins.extras.lang.astro",
     "lazyvim.plugins.extras.lang.go",
-    "lazyvim.plugins.extras.lang.json"
+    "lazyvim.plugins.extras.lang.json",
+    "lazyvim.plugins.extras.lang.typescript"
   ],
   "news": {
-    "NEWS.md": "6520"
+    "NEWS.md": "11866"
   },
-  "version": 6
+  "version": 8
 }

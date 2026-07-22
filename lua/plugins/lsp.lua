@@ -39,19 +39,31 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        -- pyright will be automatically installed with mason and loaded with lspconfig
-        angularls = {
-          root_dir = function(fname)
-            local util = require("lspconfig.util")
-            return util.root_pattern("angular.json", "nx.json")(fname)
-          end,
-          filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
+        vtsls = {
+          settings = {
+            vtsls = {
+              tsserver = {
+                globalPlugins = {
+                  {
+                    name = "@angular/language-server",
+                    location = vim.fn.stdpath("data")
+                      .. "/mason/packages/angular-language-server/node_modules/@angular/language-server",
+                    enableForWorkspaceTypeScriptVersions = true,
+                  },
+                },
+              },
+            },
+          },
         },
+        angularls = {},
         volar = {},
         analog = {},
         tailwindcss = {},
         svelte = {},
         glsl_analyzer = {},
+        marksman = {
+          filetypes = { "md", "markdown", "mdx", "agx" },
+        },
         gopls = {
           keys = {
             -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
@@ -139,31 +151,28 @@ return {
         tailwindcss = function(_, opts)
           opts.filetypes = { "css", "scss", "typescript", "analog", "ag", "astro" }
         end,
-        marksman = function(_, opts)
-          opts.filetypes = { "md", "markdown", "mdx", "agx" }
-        end,
         glsl_analyzer = function(_, opts) end,
-        angularls = function(_, opts)
-          opts.root_dir = lspconfig.util.root_pattern("angular.json", "nx.json")
-        end,
         gopls = function(_, opts)
           -- workaround for gopls not supporting semanticTokensProvider
           -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
-          require("lazyvim.util").lsp.on_attach(function(client, _)
-            if client.name == "gopls" then
-              if not client.server_capabilities.semanticTokensProvider then
-                local semantic = client.config.capabilities.textDocument.semanticTokens
-                client.server_capabilities.semanticTokensProvider = {
-                  full = true,
-                  legend = {
-                    tokenTypes = semantic.tokenTypes,
-                    tokenModifiers = semantic.tokenModifiers,
-                  },
-                  range = true,
-                }
+          vim.api.nvim_create_autocmd("LspAttach", {
+            callback = function(args)
+              local client = vim.lsp.get_client_by_id(args.data.client_id)
+              if client and client.name == "gopls" then
+                if not client.server_capabilities.semanticTokensProvider then
+                  local semantic = client.config.capabilities.textDocument.semanticTokens
+                  client.server_capabilities.semanticTokensProvider = {
+                    full = true,
+                    legend = {
+                      tokenTypes = semantic.tokenTypes,
+                      tokenModifiers = semantic.tokenModifiers,
+                    },
+                    range = true,
+                  }
+                end
               end
-            end
-          end)
+            end,
+          })
           -- end workaround
         end,
       },

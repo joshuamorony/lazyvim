@@ -2,6 +2,14 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
+-- Force backupcopy=yes on iCloud Drive to prevent writes being lost
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = vim.fn.expand("~") .. "/Library/Mobile Documents/**",
+  callback = function()
+    vim.opt_local.backupcopy = "yes"
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   pattern = { "*.md", "*.json", "*.mdx", "*.agx", "*.svx" },
   callback = function()
@@ -32,7 +40,7 @@ vim.api.nvim_create_autocmd("FileType", {
     -- require("cmp").setup.buffer({ enabled = false })
 
     -- manual complete
-    cmp.setup({
+    cmp.setup.buffer({
       completion = {
         autocomplete = false,
         completeopt = "menu,menuone,noinsert",

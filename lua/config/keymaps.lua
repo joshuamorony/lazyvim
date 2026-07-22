@@ -2,6 +2,11 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- Override Neovim 0.11+ default that maps <C-s> to signature_help
+pcall(vim.keymap.del, "i", "<C-s>")
+pcall(vim.keymap.del, "s", "<C-s>")
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w!<cr><esc>", { desc = "Save File" })
+
 vim.keymap.set("n", "U", "<c-u>zz")
 vim.keymap.set("n", "D", "<c-d>zz")
 
@@ -13,14 +18,6 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
 -- join lines
 vim.keymap.set("n", "J", "mzJ`z")
-
--- chatgpt
-vim.keymap.set("n", "<leader>gp", "<cmd>ChatGPT<cr>", { desc = "Launch ChatGPT" })
-vim.keymap.set("n", "<leader>gpa", "<cmd>ChatGPTActAs<cr>", { desc = "ChatGPT Act As" })
-vim.keymap.set("n", "<leader>gpe", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "ChatGPT Edit With Instructions" })
-vim.keymap.set("n", "<leader>gpc", "<cmd>ChatGPTCompleteCode<cr>", { desc = "ChatGPT Complete Code" })
-vim.keymap.set("n", "<leader>gpf", "<cmd>ChatGPTRun fix_bugs<cr>", { desc = "ChatGPT Fix Bugs" })
-vim.keymap.set("n", "<leader>gpx", "<cmd>ChatGPTRun explain_code<cr>", { desc = "ChatGPT Fix Bugs" })
 
 -- markdown
 vim.keymap.set(
@@ -58,7 +55,7 @@ vim.keymap.set("n", "<leader>hl", function()
   ui.nav_next()
 end)
 vim.keymap.set("n", "<leader>hh", function()
-  ui.nav_next()
+  ui.nav_prev()
 end)
 
 -- undotree
@@ -80,6 +77,3 @@ vim.keymap.set("n", "<leader>km", require("telescope.builtin").keymaps, { desc =
 vim.keymap.set("n", "<leader>rg", require("telescope.builtin").registers, { desc = "[R]egisters" })
 vim.keymap.set("n", "<leader>ht", require("telescope.builtin").help_tags, { desc = "[H]elp [T]ags" })
 
--- ufo
-vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
